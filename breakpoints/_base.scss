@@ -127,6 +127,7 @@ a {
   height: 60vh;
   overflow: hidden;
   position:relative;
+  transform:translate3d(0,0,0);
   &__container {
     @extend .content-width;
     margin-left: 0;
