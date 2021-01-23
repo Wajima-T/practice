@@ -1,0 +1,217 @@
+/******************************************************************
+
+Stylesheet: 600up
+
+******************************************************************/
+html {
+  font-size: 70%;
+}
+
+.mb-md {
+  margin-bottom: 20px;
+}
+.mb-lr {
+  margin-bottom: 40px;
+}
+.pb-lr {
+  padding-bottom: 40px;
+}
+.brsp {
+  display: block;
+}
+// -------------------------------------------
+//                            header セクション
+// -------------------------------------------
+.header {
+  &__nav {
+    display: block;
+    &-list {
+      display: inline-block;
+      margin-right: 46px;
+      &:last-of-type {
+        margin-right: 0;
+        display: none;
+      }
+    }
+    &-link {
+      font-weight: bold;
+      font-size: 14px;
+    }
+  }
+  &__btn {
+    display: block;
+    @include btn;
+  }
+}
+.mobile {
+  &__btn {
+    display: none;
+  }
+  &__menu {
+    display: none;
+  }
+}
+// -------------------------------------------
+//                            mv セクション
+// -------------------------------------------
+.mv {
+  // margin-bottom: 30px;
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__primary {
+    transform:translateY(50%);
+  }
+  &__ttl {
+    text-align:left;
+  }
+  &__txt {
+    text-align: left;
+  }
+  &__img {
+    position:static;
+  }
+  &__manager {
+    top:10%;
+    left:45%;
+    // transform:translateX(-50%);
+  }
+  &__circle {
+    width: 50%;
+    height: auto;
+    top:15%;
+    left:75%;
+    transform:translateX(-50%);
+    z-index:-1;
+  }
+}
+
+// -------------------------------------------
+//                            main セクション
+// -------------------------------------------
+.main {
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    &-img {
+      flex-basis:40%;
+      margin-bottom: 0;
+    }
+    &-body {
+      flex-basis:55%;
+      padding: 30px 0;
+      margin-bottom: 0;
+    }
+    &-order2 {
+      order: 2;
+    }
+  }
+}
+
+// -------------------------------------------
+//                            price セクション
+// -------------------------------------------
+.price {
+  &__table {
+    width: 80%;
+    &-head {
+      width: 50%;
+    }
+  }
+}
+
+// -------------------------------------------
+//                            qa セクション
+// -------------------------------------------
+.qa {
+  &__ttl {
+    text-align: center;
+  }
+}
+
+// -------------------------------------------
+//                            blog セクション
+// -------------------------------------------
+.blog {
+  &__container {
+    padding-bottom: 91px;
+  }
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1227px;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+  }
+  &__box {
+    width: calc((100% - 40px) / 3 );
+    text-align: left;
+    background-color: $cWhite;
+    box-shadow: 0px 3px 6px #00000029;
+    &-info {
+      height: 140px;
+      display: flex;
+      flex-direction:column;
+    }
+    &-ttl {
+      padding-top: 10px;
+      font-size: 14px;
+    }
+    &-time {
+      // display: block;
+      // margin: 0 0 10px !important;
+      padding-top: 20px;
+      text-align: right;
+      font-size: 14px;
+      margin-top:auto;
+      margin-bottom:10px;
+    }
+  }
+}
+// -------------------------------------------
+//                            works セクション
+// -------------------------------------------
+.works {
+  padding-top: 30px;
+
+  &__subttl {
+    margin-bottom: 30px;
+  }
+
+  &__panel {
+    width: 280px;
+    border:thin solid #dddddd;
+    border-radius:8px;
+  }
+  &__img {
+    width: 280px;
+    margin-bottom: 18px;
+  }
+  &__ttl {
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align:left;
+  }
+  &__txt {
+    padding-left: 18px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
+// -------------------------------------------
+//                            contact セクション
+// -------------------------------------------
+.contact {
+  &__container {
+    max-width: 908px;
+  }
+}

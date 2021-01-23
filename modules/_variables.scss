@@ -1,0 +1,30 @@
+$cBlack:#333;
+$cWhite:#fff;
+$cSubttl:#3BA6C9;
+$cBack:#EEFBFB;
+$cGray:#F2F2F2;
+$cGrayBorder:#E5E5E5;
+$sp: 1180px; // スマホ
+$contentMaxWidth:1022px;
+$headerHeight:60px;
+$headerHeightPc:94px;
+$cSpan:#0C449B;
+
+@mixin pc {
+  @media (min-width: ($sp)) {
+    @content;
+  }
+}
+
+@mixin btn {
+  width: 155px;
+  height: 37px;
+  background: transparent linear-gradient(90deg, #fa41cc 0%, #6020b0 100%) 0% 0%
+    no-repeat padding-box;
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px #00000029;
+  color: #fff;
+  text-align: center;
+  line-height: 37px;
+  font-size: 14px;
+}

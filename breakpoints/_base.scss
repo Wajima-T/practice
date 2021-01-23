@@ -1,0 +1,537 @@
+/******************************************************************
+
+Stylesheet: basestyle
+
+******************************************************************/
+html {
+  font-size: 62.5%;
+  // scroll-behavior: smooth;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+body {
+  color: #333333;
+  margin: 0 auto;
+  font-family: "Noto Sans JP", sans-serif;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.content-width {
+  margin: 0 auto;
+  max-width: $contentMaxWidth;
+  width: calc(100% - 40px);
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: $cBlack;
+}
+
+.heading-sp {
+  font-size: 2rem;
+  font-weight: bold;
+  color: $cBlack;
+  line-height: 1.4375;
+  text-align: center;
+}
+.ttl {
+  font-size: 1.8rem;
+  text-align: center;
+}
+.subttl {
+  font-size: 1.4rem;
+  color: $cSubttl;
+  text-align: center;
+}
+.mb-md {
+  margin-bottom: 1rem;
+}
+.mb-lr {
+  margin-bottom: 3rem;
+}
+.pb-lr {
+  padding-bottom: 3rem;
+}
+.brsp {
+  display: none;
+}
+.brpc {
+  display: block;
+}
+// -------------------------------------------
+//                            header セクション
+// -------------------------------------------
+.header {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  position: fixed;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $headerHeight;
+    @extend .content-width;
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+  &__pc {
+    display: none;
+  }
+  &__sp {
+    img {
+      vertical-align: middle;
+    }
+    span {
+      vertical-align: middle;
+    }
+  }
+  &__nav {
+    display: none;
+  }
+  &__btn {
+    display: none;
+    transition:transform 0.5s;
+    &:hover {
+      transform:scale(1.1);
+    }
+  }
+}
+
+// -------------------------------------------
+//                            mv セクション
+// -------------------------------------------
+.mv {
+  margin-top: $headerHeight;
+  width: 100vw;
+  height: 60vh;
+  overflow: hidden;
+  position:relative;
+  &__container {
+    @extend .content-width;
+    margin-left: 0;
+    position: relative;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &__ttl {
+    @extend .heading-sp;
+    @extend .mb-md;
+  }
+  &__txt {
+    font-size: 1.6rem;
+    @extend .mb-md;
+  }
+  &__btn {
+    display: none;
+    margin: 0 auto;
+    @include btn;
+    transition:transform 0.5s;
+    &:hover {
+      transform:scale(1.1);
+    }
+  }
+  &__img {
+    position:relative;
+    z-index:1;
+  }
+  &__manager {
+    position:absolute;
+    top:40%;
+    left:0;
+    z-index:10;
+  }
+  &__managerPc {
+    display: none;
+  }
+  &__circle {
+    // display: none;
+    width: 100%;
+    height: auto;
+    position:absolute;
+    top:90%;
+    z-index:-1;
+  }
+}
+// -------------------------------------------
+//                            main セクション
+// -------------------------------------------
+.main {
+  &__heading {
+    @extend .heading-sp;
+    text-align: center;
+  }
+  &__subttl {
+    @extend .subttl;
+    @extend .mb-lr;
+  }
+  &__container {
+    @extend .content-width;
+  }
+  &__ttl {
+    @extend .ttl;
+    @extend .mb-md;
+  }
+  &__box {
+    &-img {
+      @extend .mb-md;
+    }
+    &-body {
+      margin-bottom: 5rem;
+    }
+    &-ttl {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+    &-txt {
+      font-size: 1.2rem;
+    }
+  }
+}
+// -------------------------------------------
+//                            price セクション
+// -------------------------------------------
+.price {
+  background-color: #eefbfb;
+  &__heading {
+    @extend .heading-sp;
+    padding-top: 3rem;
+  }
+  &__subttl {
+    @extend .subttl;
+    @extend .mb-md;
+  }
+  &__table {
+    background-color: #fff;
+    margin: 0 auto 1rem;
+    font-size: 1.2rem;
+    border: 1px solid #e5e5e5;
+    border-collapse: collapse;
+    box-shadow: 0px 3px 6px #00000029;
+  }
+  td {
+    border: 1px solid #e5e5e5;
+    padding: 2rem;
+  }
+  &__txt {
+    text-align: center;
+    @extend .pb-lr;
+  }
+}
+// -------------------------------------------
+//                            qa セクション
+// -------------------------------------------
+.qa {
+  &__container {
+    @extend .content-width;
+    @extend .mb-lr;
+    padding-top: 3rem;
+  }
+  &__heading {
+    @extend .heading-sp;
+  }
+  &__subttl {
+    @extend .subttl;
+    @extend .mb-md;
+  }
+
+  &__ttl {
+    cursor:pointer;
+    font-size: 1.6rem;
+    padding-right: 20px;
+    @extend .mb-md;
+    position: relative;
+    &::after {
+      content: "\f078";
+      font-family: "Font Awesome 5 Free";
+      position: absolute;
+      top: 30%;
+      right: 0;
+      // transform:translateY(-50%);
+    }
+    &.is-open {
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &__ans {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    font-size: 1.4rem;
+    background-color: $cGray;
+    border:1px solid $cGrayBorder;
+    @extend .mb-md;
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+      max-height: 300px;
+    }
+  }
+  &__txt {
+    padding: 1rem;
+  }
+}
+// -------------------------------------------
+//                            blog セクション
+// -------------------------------------------
+.blog {
+  background-color: $cBack;
+
+  &__container {
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+
+  }
+  &__heading {
+    @extend .heading-sp;
+  }
+  &__subttl {
+    @extend .subttl;
+    @extend .mb-md;
+  }
+
+  &__box {
+    text-align: center;
+    position:relative;
+    &:hover {
+      opacity:0.6;
+    }
+    &-ttl {
+      font-size: 1.4rem;
+      padding: 0 1rem;
+    }
+    &-time {
+      display: inline-block;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      font-size: 1.4rem;
+      padding: 0 1rem;
+    }
+    a {
+      position:absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+// -------------------------------------------
+//                            works セクション
+// -------------------------------------------
+.works {
+  padding-top: 3rem;
+  &__heading {
+    @extend .heading-sp;
+  }
+  &__subttl {
+    @extend .subttl;
+    margin-bottom: 2rem;
+  }
+  &__container {
+    @extend .mb-lr;
+  }
+  &__inner {
+    padding: 0 1rem;
+  }
+  &__panel {
+    position:relative;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  &__ttl {
+    font-size: 1.6rem;
+  }
+  &__txt {
+    font-size: 1.2rem;
+  }
+  a {
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+
+  }
+}
+.swiper-container {
+  padding-bottom: 50px;
+}
+.swiper-button-prev,.swiper-button-next {
+  position:absolute;
+  top:30%;
+  color:$cBlack;
+  transform:scale(0.5);
+}
+
+// -------------------------------------------
+//                            contact セクション
+// -------------------------------------------
+.contact {
+  background: transparent
+    linear-gradient(90deg, #05a5fa 0%, #63fbd7 100%, #67ffd6 100%) 0% 0%
+    no-repeat padding-box;
+  @extend .pb-lr;
+  &__heading {
+    @extend .heading-sp;
+    color: $cWhite;
+    padding-top: 3rem;
+  }
+  &__subttl {
+    @extend .subttl;
+    color: $cWhite;
+    margin-bottom: 2rem;
+  }
+  &__txt {
+    color: $cWhite;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+  }
+  &__container {
+    width: 95%;
+    margin: 0 auto;
+    padding: 2rem 2rem 3rem;
+    background-color: $cWhite;
+    font-size: 1.4rem;
+  }
+  & input[type="text"],input[type="email"],
+  textarea {
+    width: 97%;
+    height: 4rem;
+    background-color: $cBack;
+  }
+  & textarea {
+    height: 20rem;
+  }
+  &__form {
+    &-item {
+      margin-bottom: 3rem;
+      label {
+        display: inline-block;
+        margin-bottom: 2rem;
+        font-weight: bold;
+      }
+      span {
+        color: $cWhite;
+        width: 60px;
+        height: 30px;
+        font-size: 1.2rem;
+        font-weight: 300;
+        margin-left: 1rem;
+        padding: 4px 10px;
+        background-color: $cSpan;
+        border-radius: 10px;
+        text-align: center;
+      }
+    }
+    &-checkbox {
+      text-align: center;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+    &-check {
+      display: inline-block;
+      position:relative;
+      padding-left: 2.8rem;
+      margin:1em auto;
+      cursor:pointer;
+      user-select:none;
+      input {
+        display: none;
+      }
+      .checkmark {
+        position:absolute;
+        top:0;
+        left:0;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #707070;
+        &:after {
+          content:"";
+          position:absolute;
+          border:solid #fff;
+          border-width:0 3px 3px 0;
+          left: 5px;
+          top: 0;
+          width: 8px;
+          height: 15px;
+          transform: rotate(45deg);
+          opacity: 0; /* 透明にしておく */
+        }
+      }
+      input:checked + .checkmark {
+        background:#2e80ff;
+        border-color:#2e80ff;
+      }
+      input:checked + .checkmark:after {
+        opacity:1;
+      }
+      // text-align: center;
+      // margin-bottom: 3rem;
+      // font-weight: bold;
+    }
+    &-btn {
+      text-align: center;
+    }
+    &-submit {
+      display: inline-block;
+      @include btn;
+      margin:0 auto;
+      appearance: none;
+      opacity:0.5;
+    }
+    
+  }
+}
+.end__message , .false__message {
+  display: none;
+}
+// -------------------------------------------
+//                            footer セクション
+// -------------------------------------------
+.footer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  &__heading {
+    @extend .heading-sp;
+  }
+  ul {
+    text-align: center;
+  }
+  &__list {
+    display: inline-block;
+    padding: 2rem 2rem 3rem;
+  }
+  &__link {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+}
