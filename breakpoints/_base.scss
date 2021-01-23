@@ -128,6 +128,7 @@ a {
   overflow: hidden;
   position:relative;
   transform:translate3d(0,0,0);
+  margin-bottom:40px;
   &__container {
     @extend .content-width;
     margin-left: 0;
@@ -139,6 +140,7 @@ a {
   &__ttl {
     @extend .heading-sp;
     @extend .mb-md;
+    
   }
   &__txt {
     font-size: 1.6rem;
@@ -155,13 +157,13 @@ a {
   }
   &__img {
     position:relative;
-    z-index:1;
+    z-index:-1;
   }
   &__manager {
     position:absolute;
     top:40%;
     left:0;
-    z-index:10;
+    z-index:100;
   }
   &__managerPc {
     display: none;
